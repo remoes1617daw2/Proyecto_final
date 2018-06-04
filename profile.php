@@ -7,10 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="js/modernizr-custom.js" defer></script>
 	<script src="js/script_profile.js" defer></script>
+	<script src="js/script_viewprofile.js" defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+
 </head>
 <h1>profile</h1>
-<h3 id="name"><h3>
 <header>
 		<nav>
 			<form>		
@@ -24,3 +26,8 @@
 			</ul>
 		</nav>
 </header>
+<h3 id="name"><h3>
+<p id="description"></p>
+<figure>
+	<img id="profile_picture" src="img/image-profile/default.png"></img>
+</figure>

@@ -5,6 +5,9 @@
 	var array_identify;
 	window.addEventListener("load", startup, false);
 
+//PAGE PROFILE
+
+//get color picker
 	function startup() {
 	  colorWell = document.querySelector("#colorWell");
 	  $.ajax({
@@ -68,18 +71,15 @@
 			var array_users = JSON.parse(respuesta);
 			console.log(respuesta);
 			if(respuesta != null){
-				result_email = array_users["email"];
+				result_id = array_users["id"];
 				result_idcompany = array_users["idcompany"];
-				array_identify = new Object();
-				array_identify.email = result_email;
-				array_identify.idcompany = result_idcompany;
-
-				sendEmail();
 				for(var a = 0; a<array_users["user"].length; a++){
 					var p = document.createElement("p");
 					var p_att = p.setAttribute("id", "p_filter");
 					var link = document.createElement("a");
-					var link_att = link.setAttribute("href", "profile.php");
+					var link_href = link.setAttribute("href", "profile.php");
+					var link_id = link.setAttribute("id", array_users["id"][a]);
+					var link_onclick = link.setAttribute("onclick", "sendId("+array_users["id"][a]+")");
 					var name = document.createTextNode(array_users["user"][a]);
 					link.appendChild(name);
 					p.appendChild(link);
@@ -90,10 +90,9 @@
 		});
 	}
 
-	function sendEmail(){
-		$.get("views/modules/ajax.php?email="+result_email,
+	function sendId(value){
+		$.get("views/modules/ajax.php?identify_id="+value,
 		function(respuesta){
-			json = JSON.parse(respuesta);
 			console.log(json);
 		});
 	}
